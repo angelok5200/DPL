@@ -1,0 +1,190 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Хост: 127.0.0.1:3306
+-- Час створення: Трв 15 2023 р., 03:38
+-- Версія сервера: 8.0.30
+-- Версія PHP: 8.1.9
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+--
+-- База даних: `adoption`
+--
+-- --------------------------------------------------------
+--
+-- Структура таблиці `diti`
+--
+CREATE TABLE `diti` (
+ `id` int NOT NULL,
+ `name` varchar(1500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `region` varchar(1500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `Sex` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `age` varchar(1500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `birthday` varchar(1500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci 
+NOT NULL,
+ `adoptionform` varchar(1500) CHARACTER SET utf8mb4 COLLATE 
+utf8mb4_general_ci NOT NULL,
+ `number` varchar(1500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `info` varchar(1500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `family` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
+ `place` varchar(1500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `img` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--
+-- Дамп даних таблиці `diti`
+--
+INSERT INTO `diti` (`id`, `name`, `region`, `Sex`, `age`, `birthday`, 
+`adoptionform`, `number`, `info`, `family`, `place`, `img`) VALUES
+(1, 'Надія', 'Дніпропетровська область', 'дівчинка', '10', '21.02.2013', 
+'Усиновлення', '+38 099 999 99 99', 'Легко йде на контакт, до оточуючих 
+налаштована позитивно. ', 'Ні', 'дитячий будинок сімейного типу', 
+'img/1.jpg'),
+(2, 'Олексій', 'Київська область', 'хлопчик', '12', '21.06.2011', 
+'Опіка/піклування', '+380 999 99 99 99', 'Олексій досить емоційний хлопчик. 
+Не завжди виконує завдання, іноді створює конфліктні ситуації з 
+однолітками.', 'Ні', 'комунальний заклад', 'img/2.jpg'),
+(3, 'Катерина', 'Київська область', 'дівчинка', '7', '07.02.2016', 
+'Усиновлення', '+38 099 999 99 99', 'Активна. Любить гратись різноманітними 
+іграшками.', 'Так', 'дитячий будинок сімейного типу', 'img/3.jpg'),
+(4, 'Данило', 'Київська область', 'хлопчик', '14', '09.08.2009', 
+'Усиновлення', '+38 099 999 99 99', 'Данило легко йде на контакт з 
+оточуючими, має середній рівень знань. Хлопчик позитивно налаштований до 
+оточуючих, але потребує контролю та підтримки дорослих.', 'Так', 'комунальний 
+заклад', 'img/4.jpg'),
+(5, 'Олександр', 'Київська область', 'хлопчик', '2', '23.02.2021', 
+'Усиновлення', '+38 099 999 99 99', 'Ходить самостійно, їсть з ложечки, 
+грається іграшками, активний, навички самообслуговування не сформовані. Моваокремі звуки, повторює за дорослими.', 'Ні', 'Комунальна установа', 
+'img/5.jpg'),
+(6, 'Микита', 'Київська область', 'хлопчик', '15', '09.03.2008', 
+'Усиновлення', '+380 99 999 99 99', 'Микита - активний та емоційний хлопчик. 
+Легко контактує як з однолітками, так і з дорослими. Не вступає та не 
+провокує конфлікти. Емоційний, гіперактивний, не конфліктний.', 'Так', 
+'Дитячий будинок сімейного типу', 'img/6.jpg'),
+(7, 'Катерина', 'Дніпропетровська область', 'дівчинка', '14', '17.11.2009', 
+'Усиновлення', '+38 099 999 99 99', 'Дівчинка гостро реагує на зауваження 
+дорослих, контакт з однолітками та дорослими не підтримує. Загальний розвиток 
+пізнавальних процесів не відповідає віку.', 'Ні', 'комунальний заклад', 
+'img/7.jpg'),
+(8, 'Маргарита', 'Дніпропетровська область', 'дівчинка', '12', '08.06.2011', 
+'Усиновлення', '+38 099 999 99 99', 'Контакт встановлюється швидко, дівчинка 
+емоційна, запальна, провокує конфлікти серед друзів, має творчі потенціали. 
+', 'Так', 'дитячий будинок сімейного типу', 'img/8.jpg');
+-- --------------------------------------------------------
+--
+-- Структура таблиці `feedbacktable`
+--
+CREATE TABLE `feedbacktable` (
+ `id` int NOT NULL,
+ `senderfName` varchar(50) NOT NULL,
+ `senderlName` varchar(50) DEFAULT NULL,
+ `sendereMail` varchar(100) NOT NULL,
+ `senderfeedback` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Дамп даних таблиці `feedbacktable`
+--
+INSERT INTO `feedbacktable` (`id`, `senderfName`, `senderlName`, 
+`sendereMail`, `senderfeedback`) VALUES
+(5, 'Alex', 'Dikkens', '', 'sdggdg');
+-- --------------------------------------------------------
+--
+-- Структура таблиці `requests`
+--
+CREATE TABLE `requests` (
+ `id` int NOT NULL,
+ `name` varchar(40) DEFAULT NULL,
+ `sname` varchar(40) DEFAULT NULL,
+ `company` varchar(40) DEFAULT NULL,
+ `position` varchar(40) DEFAULT NULL,
+ `country` varchar(40) DEFAULT NULL,
+ `phone` varchar(40) DEFAULT NULL,
+ `email` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- --------------------------------------------------------
+--
+-- Структура таблиці `users`
+--
+CREATE TABLE `users` (
+ `id` int NOT NULL,
+ `login` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `lname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL,
+ `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci 
+NOT NULL,
+ `country` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT 
+NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--
+-- Дамп даних таблиці `users`
+--
+INSERT INTO `users` (`id`, `login`, `name`, `lname`, `password`, `country`) 
+VALUES
+(15, 'user1', 'user', 'user', 'user1', 'Україна');
+--
+-- Індекси збережених таблиць
+--
+--
+-- Індекси таблиці `diti`
+--
+ALTER TABLE `diti`
+ ADD PRIMARY KEY (`id`);
+--
+-- Індекси таблиці `feedbacktable`
+--
+ALTER TABLE `feedbacktable`
+ ADD PRIMARY KEY (`id`),
+ ADD UNIQUE KEY `msgID` (`id`);
+--
+-- Індекси таблиці `requests`
+--
+ALTER TABLE `requests`
+ ADD PRIMARY KEY (`id`);
+--
+-- Індекси таблиці `users`
+--
+ALTER TABLE `users`
+ ADD PRIMARY KEY (`id`);
+--
+-- AUTO_INCREMENT для збережених таблиць
+--
+--
+-- AUTO_INCREMENT для таблиці `diti`
+--
+ALTER TABLE `diti`
+ MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT для таблиці `feedbacktable`
+--
+ALTER TABLE `feedbacktable`
+ MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT для таблиці `requests`
+--
+ALTER TABLE `requests`
+ MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT для таблиці `users`
+--
+ALTER TABLE `users`
+ MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+COMMIT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
